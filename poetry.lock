@@ -452,19 +452,18 @@ requests = ["requests (>=2.20.0,<3.0.0.dev0)"]
 
 [[package]]
 name = "google-auth-httplib2"
-version = "0.1.0"
+version = "0.2.0"
 description = "Google Authentication Library: httplib2 transport"
 optional = false
 python-versions = "*"
 files = [
-    {file = "google-auth-httplib2-0.1.0.tar.gz", hash = "sha256:a07c39fd632becacd3f07718dfd6021bf396978f03ad3ce4321d060015cc30ac"},
-    {file = "google_auth_httplib2-0.1.0-py2.py3-none-any.whl", hash = "sha256:31e49c36c6b5643b57e82617cb3e021e3e1d2df9da63af67252c02fa9c1f4a10"},
+    {file = "google-auth-httplib2-0.2.0.tar.gz", hash = "sha256:38aa7badf48f974f1eb9861794e9c0cb2a0511a4ec0679b1f886d108f5640e05"},
+    {file = "google_auth_httplib2-0.2.0-py2.py3-none-any.whl", hash = "sha256:b65a0a2123300dd71281a7bf6e64d65a0759287df52729bdd1ae2e47dc311a3d"},
 ]
 
 [package.dependencies]
 google-auth = "*"
-httplib2 = ">=0.15.0"
-six = "*"
+httplib2 = ">=0.19.0"
 
 [[package]]
 name = "google-auth-oauthlib"
@@ -1924,4 +1923,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "2ad3732c58776e6f3297e9e1a1decbb2f3aaaee5cc842ba255c15435afaa5bd9"
+content-hash = "11c91f31eccc144f52fae4205ec53450026d88e665f8f068c17e5cb2e4faaa64"
