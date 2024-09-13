@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "mediahost"
+version = "0.1.0"
+description = "A comprehensive video hosting platform"
+authors = ["dodwmd <michael@dodwell.us>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.9"
+streamlit = "^1"
+mysql-connector-python = "8.0.33"
+nats-py = "2.2.0"
+minio = "7.1.15"
+python-dotenv = "1.0.0"
+stripe = "5.4.0"
+pillow = "9.5.0"
+bcrypt = "4.0.1"
+PyJWT = "2.6.0"
+faker = "18.9.0"
+requests = "2.31.0"
+prometheus_client = "0.16.0"
+streamlit-player = "0.1.5"
+numpy = "2.0.2"
+pandas = "2.2.2"
+plotly = "5.14.1"
+icalendar = "4.0.7"
+pytz = "2021.1"
+schedule = "1.1.0"
+werkzeug = "2.0.2"
+google-auth-oauthlib = "0.4.6"
+google-auth-httplib2 = "0.1.0"
+google-api-python-client = "2.23.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "7.3.1"
+pytest-cov = "4.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "streamlit run app/main.py"
+test = "pytest"
+generate_data = "python generate_test_data.py"

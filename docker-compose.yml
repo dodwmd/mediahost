@@ -1,0 +1,56 @@
+services:
+  mediahost_app:
+    build: .
+    env_file: .env
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    working_dir: /app
+    depends_on:
+      - db
+      - minio
+      - nats
+
+  db:
+    image: mysql:8.0
+    env_file: .env
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    env_file: .env
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=${DB_PASSWORD}
+    depends_on:
+      - db
+
+  minio:
+    image: minio/minio
+    env_file: .env
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+  nats:
+    image: nats:latest
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+
+volumes:
+  db_data:
+  minio_data:

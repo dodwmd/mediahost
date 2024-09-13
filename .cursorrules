@@ -1,0 +1,150 @@
+# MediaHost Project Cursor Rules
+
+# Project root directory
+root: /
+
+# Python version
+python_version: 3.9
+
+# Main application file
+main_file: app/main.py
+
+# Test directory
+test_dir: tests/
+
+# Configuration files
+config_files:
+  - .env
+  - .env.example
+  - pyproject.toml
+  - requirements.txt
+  - environment.yml
+  - Tiltfile
+  - docker-compose.yml
+
+# Ignore directories
+ignore_dirs:
+  - .git
+  - .venv
+  - __pycache__
+
+# Custom file associations
+file_associations:
+  .py: python
+  .yml: yaml
+  .yaml: yaml
+  .md: markdown
+  .toml: toml
+  .sh: shell
+  .sql: sql
+
+# Linter configurations
+linters:
+  python: flake8
+  yaml: yamllint
+  sql: sqlfluff
+
+# Formatter configurations
+formatters:
+  python: black
+  yaml: prettier
+  sql: sqlformat
+
+# Custom rules
+rules:
+  - name: use_f_strings
+    description: Prefer f-strings over .format() or % formatting
+    pattern: '\.format\(|%[sd]'
+    message: Consider using an f-string instead
+
+  - name: avoid_print_statements
+    description: Avoid using print statements in production code
+    pattern: 'print\('
+    message: Consider using a logging statement instead of print
+
+  - name: use_type_hints
+    description: Encourage the use of type hints
+    pattern: 'def [a-zA-Z_]+\([^:]+\):'
+    message: Consider adding type hints to function parameters and return values
+
+# Project-specific conventions
+conventions:
+  - All new features should have corresponding unit tests
+  - Use snake_case for function and variable names
+  - Use CamelCase for class names
+  - Keep functions and methods under 50 lines where possible
+  - Use docstrings for all public functions, classes, and modules
+  - Follow PEP 8 style guide for Python code
+  - Use meaningful variable and function names
+  - Keep SQL queries in separate .sql files under config/sql/ directory
+
+# Dependencies
+dependencies:
+  - streamlit==1.38.0
+  - mysql-connector-python==8.0.33
+  - nats-py==2.2.0
+  - minio==7.1.15
+  - python-dotenv==1.0.0
+  - stripe==5.4.0
+  - pillow==9.5.0
+  - bcrypt==4.0.1
+  - PyJWT==2.6.0
+  - faker==18.9.0
+  - requests==2.31.0
+  - prometheus_client==0.16.0
+  - streamlit-player==0.1.5
+  - numpy==2.0.2
+  - pandas==2.2.2
+  - plotly==5.14.1
+  - icalendar==4.0.7
+  - pytz==2021.1
+  - schedule==1.1.0
+  - werkzeug==2.0.2
+  - google-auth-oauthlib==0.4.6
+  - google-auth-httplib2==0.1.0
+  - google-api-python-client==2.23.0
+
+# Environment variables (do not include actual values)
+env_vars:
+  - DB_HOST
+  - DB_USER
+  - DB_PASSWORD
+  - DB_NAME
+  - MINIO_ENDPOINT
+  - MINIO_ACCESS_KEY
+  - MINIO_SECRET_KEY
+  - MINIO_SECURE
+  - NATS_URL
+  - STRIPE_SECRET_KEY
+  - STRIPE_PUBLISHABLE_KEY
+  - FRONTEND_URL
+  - JWT_SECRET
+  - GOOGLE_ANALYTICS_KEY_FILE
+  - GOOGLE_ANALYTICS_VIEW_ID
+  - DOMAIN_NAME
+  - SITE_NAME
+  - REPO_URL
+  - ADMIN_EMAIL
+  - SECRET_KEY
+  - ALGORITHM
+  - ACCESS_TOKEN_EXPIRE_MINUTES
+  - PROMETHEUS_PORT
+
+# SQL files
+sql_files:
+  - config/sql/01_users.sql
+  - config/sql/02_events.sql
+  - config/sql/03_videos.sql
+  - config/sql/04_merchandise.sql
+  - config/sql/05_page_blocks.sql
+  - config/sql/06_comments.sql
+  - config/sql/07_ratings.sql
+  - config/sql/08_categories.sql
+  - config/sql/09_event_categories.sql
+  - config/sql/10_tags.sql
+  - config/sql/11_event_tags.sql
+  - config/sql/12_event_views.sql
+  - config/sql/13_event_access.sql
+  - config/sql/14_merchandise_purchases.sql
+  - config/sql/15_blog_posts.sql
+  - config/sql/16_notifications.sql
