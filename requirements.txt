@@ -1,5 +1,5 @@
 streamlit==1.38.0
-mysql-connector-python==8.0.33
+mysql-connector-python==8.4.0
 nats-py==2.2.0
 minio==7.1.15
 python-dotenv==1.0.1
