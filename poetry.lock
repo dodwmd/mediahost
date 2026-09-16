@@ -809,15 +809,18 @@ pyarrow = ["pyarrow (>=11.0.0)"]
 
 [[package]]
 name = "nats-py"
-version = "2.2.0"
+version = "2.16.0"
 description = "NATS client for Python"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "nats-py-2.2.0.tar.gz", hash = "sha256:e45a0bafde2d04fb2d2bd6b0527b95bc77f371beaf7b6237354be0234ff9bba9"},
+    {file = "nats_py-2.16.0-py3-none-any.whl", hash = "sha256:aeb1ff123966c05833d26c7df7e1d54c1c6d32b612428b21677a2e921f1fecae"},
+    {file = "nats_py-2.16.0.tar.gz", hash = "sha256:1d137ed7afc9b59033b3199324c6237df2016a5091935871344a787eba6b72fc"},
 ]
 
 [package.extras]
+aiohttp = ["aiohttp"]
+fast-parse = ["fast-mail-parser"]
 nkeys = ["nkeys"]
 
 [[package]]
@@ -1924,4 +1927,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "2ad3732c58776e6f3297e9e1a1decbb2f3aaaee5cc842ba255c15435afaa5bd9"
+content-hash = "968530d5cd08a30161baa3801c2da0d9feafef9a7fb4ca7529d55feae8f32064"
